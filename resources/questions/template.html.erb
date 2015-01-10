@@ -15,24 +15,35 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
 
+    <script type="text/javascript">
+        (function(h,a){var f=h.amplitude||{};var b=a.createElement("script");b.type="text/javascript";
+            b.async=true;b.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.0.2-min.js";
+            var g=a.getElementsByTagName("script")[0];g.parentNode.insertBefore(b,g);
+            f._q=[];function e(i){f[i]=function(){f._q.push([i].concat(Array.prototype.slice.call(arguments,0)))}}
+            var c=["init","logEvent","setUserId","setUserProperties","setVersionName","setDomain","setDeviceId",
+                "setGlobalUserProperties"];
+            for(var d=0;d<c.length;d++){e(c[d])}h.amplitude=f})(window,document);
+
+        amplitude.init("f73316fa082c02616f29d64b31012453");
+    </script>
+
     <style type="text/css">
         /* Prevent text selection while swiping with mouse */
-        h1, h2, p {
+        h1, p {
             font-family: 'Droid Serif', sans-serif;
-            /*font-family: 'Open Sans', sans-serif;*/
             user-select: none;
         }
 
-        h1, h2 {
+        h1 {
             text-align: center;
             padding: 0 25px;
         }
 
-        h1 {
+        .intro h1 {
             margin-top: 90px;
         }
 
-        h2 {
+        h1.progress {
             position: absolute;
             bottom: -10px;
             font-weight: bold;
@@ -76,9 +87,21 @@
 
     <script>
         <!--
+        function t(nextpage) {
+            var header = $(nextpage[0]).find("h1")
+            if (header != undefined) {
+                amplitude.logEvent(header.text());
+            }
+        }
+
+        $(document).ready(function () {
+            amplitude.logEvent("Intro");
+        });
+
         $(document).on("swipeleft", 'div.page', function () {
             var nextpage = $(this).next('div[data-role="page"]');
             if (nextpage.length > 0) {
+                t(nextpage);
                 $.mobile.changePage(nextpage, {transition: "slide"}, false, true);
             }
         });
@@ -115,7 +138,7 @@
     <% sets[key].each do |question| %>
         <% num, text = question.to_s.split(/\s/, 2) %>
         <div data-role="page" class="page">
-            <h2><%= num.gsub(/\./, '') %>/36</h2>
+            <h1 class="progress"><%= num.gsub(/\./, '') %>/36</h1>
 
             <p><%= text %></p>
         </div>
