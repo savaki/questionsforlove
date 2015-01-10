@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Questions for Love</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+
+    <!-- jQuery & jQuery Mobile -->
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/mobile/git/jquery.mobile-git.css"/>
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+        /* Prevent text selection while swiping with mouse */
+        h1, h2, p {
+            font-family: 'Droid Serif', sans-serif;
+            /*font-family: 'Open Sans', sans-serif;*/
+            user-select: none;
+        }
+
+        h1, h2 {
+            text-align: center;
+            padding: 0 25px;
+        }
+
+        h1 {
+            margin-top: 90px;
+        }
+
+        h2 {
+            position: absolute;
+            bottom: -10px;
+            font-weight: bold;
+            font-size: 26px;
+            color: #bbb;
+        }
+
+        p {
+            position: relative;
+            margin-top: 90px;
+            padding: 5px 25px;
+            font-size: 26px;
+            line-height: 36px;
+        }
+
+        .intro p {
+            margin-top: inherit;
+            font-size: 24px;
+            line-height: inherit;
+            text-align: center;
+        }
+
+        p.call-to-action {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        p.inspiration {
+            margin-top: 160px;
+            font-size: 18px;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+
+    <script>
+        <!--
+        $(document).on("swipeleft", 'div.page', function () {
+            var nextpage = $(this).next('div[data-role="page"]');
+            if (nextpage.length > 0) {
+                $.mobile.changePage(nextpage, {transition: "slide"}, false, true);
+            }
+        });
+        $(document).on("swiperight", 'div.page', function () {
+            var prevpage = $(this).prev('div[data-role="page"]');
+            if (prevpage.length > 0) {
+                $.mobile.changePage(prevpage, {
+                    transition: "slide",
+                    reverse: true
+                }, true, true);
+            }
+        });
+        // -->
+    </script>
+</head>
+<body>
+<div data-role="page" class="page intro">
+    <h1>Questions for Love</h1>
+
+    <p>Thirty six questions to bring you and your partner closer</p>
+
+    <p class="call-to-action">Swipe to begin</p>
+
+    <p class="inspiration">Inspired by the article, <a
+    href="http://www.nytimes.com/2015/01/11/fashion/modern-love-to-fall-in-love-with-anyone-do-this.html?_r=0">To Fall
+        in Love With Anyone, Do This</a></p>
+
+</div>
+
+<% sets.keys.sort.each do |key| %>
+    <div data-role="page" class="page">
+        <h1><%= key %></h1>
+    </div>
+    <% sets[key].each do |question| %>
+        <% num, text = question.to_s.split(/\s/, 2) %>
+        <div data-role="page" class="page">
+            <h2><%= num.gsub(/\./, '') %>/36</h2>
+
+            <p><%= text %></p>
+        </div>
+    <% end %>
+<% end %>
+<div data-role="page" class="page">
+    <h1>The End</h1>
+</div>
+</body>
+</html>
+

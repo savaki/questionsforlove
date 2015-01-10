@@ -1,0 +1,9 @@
+# ignore intellij files
+/*.iml
+/*.ipr
+/*.iws
+/.idea
+
+# ignore generated files
+/resources/public/index.html
+/resources/public/smalltalk.html
