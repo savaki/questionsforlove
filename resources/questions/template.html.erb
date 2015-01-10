@@ -16,13 +16,28 @@
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript">
-        (function(h,a){var f=h.amplitude||{};var b=a.createElement("script");b.type="text/javascript";
-            b.async=true;b.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.0.2-min.js";
-            var g=a.getElementsByTagName("script")[0];g.parentNode.insertBefore(b,g);
-            f._q=[];function e(i){f[i]=function(){f._q.push([i].concat(Array.prototype.slice.call(arguments,0)))}}
-            var c=["init","logEvent","setUserId","setUserProperties","setVersionName","setDomain","setDeviceId",
+        (function (h, a) {
+            var f = h.amplitude || {};
+            var b = a.createElement("script");
+            b.type = "text/javascript";
+            b.async = true;
+            b.src = "https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.0.2-min.js";
+            var g = a.getElementsByTagName("script")[0];
+            g.parentNode.insertBefore(b, g);
+            f._q = [];
+            function e(i) {
+                f[i] = function () {
+                    f._q.push([i].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            }
+
+            var c = ["init", "logEvent", "setUserId", "setUserProperties", "setVersionName", "setDomain", "setDeviceId",
                 "setGlobalUserProperties"];
-            for(var d=0;d<c.length;d++){e(c[d])}h.amplitude=f})(window,document);
+            for (var d = 0; d < c.length; d++) {
+                e(c[d])
+            }
+            h.amplitude = f
+        })(window, document);
 
         amplitude.init("f73316fa082c02616f29d64b31012453");
     </script>
@@ -72,8 +87,9 @@
         }
 
         p.inspiration {
-            margin-top: 160px;
-            font-size: 18px;
+            margin-top: 110px;
+            font-size: 16px;
+            color: #333;
         }
 
         html, body {
@@ -127,7 +143,9 @@
 
     <p class="inspiration">Inspired by the article, <a
     href="http://www.nytimes.com/2015/01/11/fashion/modern-love-to-fall-in-love-with-anyone-do-this.html?_r=0">To Fall
-        in Love With Anyone, Do This</a>.  Based on the work of Arthur Aron, <a href="http://www.stafforini.com/txt/Aron%20et%20al%20-%20The%20experimental%20generation%20of%20interpersonal%20closeness.pdf">The Experimental Generation of Interpersonal Closeness</a></p>
+        in Love With Anyone, Do This</a>. Based on the work of Arthur Aron,
+        <a href="http://www.stafforini.com/txt/Aron%20et%20al%20-%20The%20experimental%20generation%20of%20interpersonal%20closeness.pdf">The
+            Experimental Generation of Interpersonal Closeness</a></p>
 
 </div>
 
